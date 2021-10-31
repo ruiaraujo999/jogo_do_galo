@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="Pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Galo</title>
+    <link rel="stylesheet" href="galoStyle.css">
+    
+
+</head>
+<body>
+    <h1 onclick="novo()"> Jogo do Galo </h1>
+    <br>
+
+    <div style="text-align: center;"> <input type="button" value="Novo jogo" onclick="novo()">
+        <br>
+        <p style="font-size: 2em;">Começar Com:</p>
+        <br>
+    <div class="bt" id="x" onclick="X()"> <p > X </p></div> 
+    <div class="bt" id="o" onclick="O()"> <p > O </p></div>   
+    <br>
+    <br>
+    </div>
+
+    <div id=capa>
+        <div id= tudo>
+            <div class="q"> <p class="h" id="a" onclick="insa()">a</p> </div>
+            <div class="q"> <p class="h" id="b" onclick="insb()">b</p> </div>
+            <div class="q"> <p class="h" id="c" onclick="insc()">c</p> </div>
+            <div class="q"> <p class="h" id="d" onclick="insd()">d</p> </div>
+            <div class="q"> <p class="h" id="e" onclick="inse()">e</p> </div>
+            <div class="q"> <p class="h" id="f" onclick="insf()">f</p> </div>
+            <div class="q"> <p class="h" id="g" onclick="insg()">g</p> </div>
+            <div class="q"> <p class="h" id="h" onclick="insh()">h</p> </div>
+            <div class="q"> <p class="h" id="i" onclick="insi()">i</p> </div>
+
+    </div>
+    </div>
+    
+    <script>
+        var y='a';
+        var ocupadoA=false;
+        var ocupadoB=false;
+        var ocupadoC=false;
+        var ocupadoD=false;
+        var ocupadoE=false;
+        var ocupadoF=false;
+        var ocupadoG=false;
+        var ocupadoH=false;
+        var ocupadoI=false;
+
+
+        var permiComeça=false;
+        var comecou=false;
+        var a =document.getElementById("a")
+        var b =document.getElementById("b")
+        var c =document.getElementById("c")
+        var d =document.getElementById("d")
+        var e =document.getElementById("e")
+        var f =document.getElementById("f")
+        var g =document.getElementById("g")
+        var h =document.getElementById("h")
+        var i =document.getElementById("i")
+        var o =document.getElementById("o")
+        var x =document.getElementById("x")
+        var contjogadas=0;
+
+            function novo(){ 
+                var all =document.querySelectorAll(".h")
+                for (var i = 0; i < all.length; i++) {
+                    var j = all[i];
+                    j.innerText=i
+                    j.style.color="rgb(171, 171, 255)"                 
+                }
+                  ocupadoA=false;
+                  ocupadoB=false;
+                  ocupadoC=false;
+                  ocupadoD=false;
+                  ocupadoE=false;
+                  ocupadoF=false;
+                  ocupadoG=false;
+                  ocupadoH=false;
+                  ocupadoI=false;
+                  permiComeça=false;
+                  o.style.backgroundColor='cadetblue';
+                o.style.boxShadow='none';
+                x.style.backgroundColor='cadetblue';
+                x.style.boxShadow='none';
+                comecou=false;
+                contjogadas=0;
+            }
+            function O(){
+
+                if(comecou==false){  
+                y='O'
+                permiComeça=true
+                x.style.backgroundColor='cadetblue';
+                x.style.boxShadow='none';
+                o.style.backgroundColor='rgb(40, 65, 66)';
+                o.style.boxShadow='inset 10px 10px 10px black';}
+
+            }
+            function X(){
+                if(comecou==false){ 
+                y='X';
+                permiComeça=true;
+                o.style.backgroundColor='cadetblue';
+                o.style.boxShadow='none';
+                x.style.backgroundColor='rgb(40, 65, 66)';
+                x.style.boxShadow='inset 10px 10px 10px black';}
+            }
+            function insa(){
+                if(ocupadoA==false){
+                    if(permiComeça==true){
+                        if(y=='O'){a.innerText='O'; y='X';}
+                        else{a.innerText='X'; y='O' }
+                        ocupadoA=true;
+                        a.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+                
+                
+            }
+            function insb(){
+                if(ocupadoB==false){
+                    if(permiComeça==true){
+                        if(y=='O'){b.innerText='O';  y='X';}
+                        else{b.innerText='X';  y='O';}
+                        ocupadoB=true;
+                        b.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function insc(){
+                if(ocupadoC==false){
+                    if(permiComeça==true){
+                        if(y=='O'){c.innerText='O';  y='X';}
+                        else{c.innerText='X';  y='O';}
+                        ocupadoC=true;
+                        c.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function insd(){
+                if(ocupadoD==false){
+                    if(permiComeça==true){
+                        if(y=='O'){d.innerText='O';  y='X';}
+                        else{d.innerText='X';  y='O';}
+                        ocupadoD=true;
+                        d.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function inse(){
+                if(ocupadoE==false){
+                    if(permiComeça==true){
+                        if(y=='O'){e.innerText='O';  y='X';}
+                        else{e.innerText='X';  y='O';}
+                        ocupadoE=true;
+                        e.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function insf(){
+                if(ocupadoF==false){
+                    if(permiComeça==true){
+                        if(y=='O'){f.innerText='O';  y='X';}
+                        else{f.innerText='X';  y='O';}
+                        ocupadoF=true;
+                        f.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function insg(){
+                if(ocupadoG==false){
+                    if(permiComeça==true){
+                        if(y=='O'){g.innerText='O';  y='X';}
+                        else{g.innerText='X';  y='O';}
+                        ocupadoG=true;
+                        g.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function insh(){
+                if(ocupadoH==false){
+                    if(permiComeça==true){
+                        if(y=='O'){h.innerText='O';  y='X';}
+                        else{h.innerText='X';  y='O';}
+                        ocupadoH=true;
+                        h.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            } 
+            function insi(){
+                if(ocupadoI==false){
+                    if(permiComeça==true){
+                        if(y=='O'){i.innerText='O';  y='X';}
+                        else{i.innerText='X';  y='O';}
+                        ocupadoI=true;
+                        i.style.color='black';
+                        comecou=true
+                        contjogadas++;
+                    }
+                }
+                if(permiComeça==true){verificar();}
+            }
+            function verificar(){
+                if(a.innerText==b.innerText && b.innerText==c.innerText){
+                    a.style.color="red";b.style.color='red';c.style.color='red'; 
+                    permiComeça=false;}
+
+                if(d.innerText==e.innerText && e.innerText==f.innerText){
+                    d.style.color="red";e.style.color='red';f.style.color='red';
+                    permiComeça=false;}
+
+                if(g.innerText==h.innerText && h.innerText==i.innerText){
+                    g.style.color="red";h.style.color='red';i.style.color='red'; 
+                    permiComeça=false;}
+
+                if(a.innerText==d.innerText && d.innerText==g.innerText){
+                    a.style.color="red";d.style.color='red';g.style.color='red';
+                    permiComeça=false;}
+
+                if(b.innerText==e.innerText && e.innerText==h.innerText){
+                    b.style.color="red";e.style.color='red';h.style.color='red';
+                    permiComeça=false;}
+
+                if(c.innerText==f.innerText && f.innerText==i.innerText){
+                    c.style.color="red";f.style.color='red';i.style.color='red'; 
+                    permiComeça=false;}
+
+                if(a.innerText==e.innerText && e.innerText==i.innerText){
+                    a.style.color="red";e.style.color='red';i.style.color='red';
+                    permiComeça=false;}
+
+                if(c.innerText==e.innerText && e.innerText==g.innerText){
+                    c.style.color="red";e.style.color='red';g.style.color='red';
+                    permiComeça=false;}
+                if(permiComeça==true && contjogadas==9){ 
+                    a.style.color="red";
+                    b.style.color="red";
+                    c.style.color="red";
+                    d.style.color="red";
+                    e.style.color="red";
+                    f.style.color="red";
+                    g.style.color="red";
+                    h.style.color="red";
+                    i.style.color="red";
+                }
+
+                
+            }
+            
+            
+
+
+
+    </script>
+
+</body>
+</html>
